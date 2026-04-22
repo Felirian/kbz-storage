@@ -1,9 +1,8 @@
 ---
-title: Getting Started
-author: felirian
+title: Wiki
 ---
 
-# Getting Started
+# Wiki
 
 Welcome to the **kbz-test** project.
 
