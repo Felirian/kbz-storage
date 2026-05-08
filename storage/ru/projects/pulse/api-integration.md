@@ -1,3 +1,8 @@
+---
+title: Pulse · API-взаимодействие
+description: REST и WebSocket транспорт, авторизация через OAuth 2.0, нормализация ошибок, idempotency и мониторинг запросов.
+---
+
 # API-взаимодействие в Pulse
 
 ## Транспорт

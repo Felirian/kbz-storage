@@ -1,3 +1,8 @@
+---
+title: Bridge · Дизайн-система
+description: Компоненты портала, DocBlock-паттерны для документации, состояния Playground, accessibility-требования WCAG 2.2.
+---
+
 # Дизайн-система Bridge
 
 ## Состав

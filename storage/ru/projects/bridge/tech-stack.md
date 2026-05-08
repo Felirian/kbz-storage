@@ -1,3 +1,8 @@
+---
+title: Bridge · Используемые технологии
+description: MDX для документации, Swagger UI, Monaco Editor для playground, OAuth 2.0 с PKCE и security-инструментарий.
+---
+
 # Используемые технологии Bridge
 
 ## Базовый стек

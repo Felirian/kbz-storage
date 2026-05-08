@@ -1,3 +1,8 @@
+---
+title: Bridge · API-взаимодействие
+description: OAuth 2.0 PKCE, ротация API-ключей партнёров, rate limiting, BFF-проксирование и мониторинг безопасности.
+---
+
 # API-взаимодействие в Bridge
 
 ## Транспорт

@@ -1,3 +1,8 @@
+---
+title: Pulse · Код-стайл
+description: Соглашения по именованию файлов и переменных, конфигурация ESLint и Prettier, правила TypeScript и React.
+---
+
 # Код-стайл Pulse
 
 ## Общие правила

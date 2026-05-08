@@ -1,3 +1,8 @@
+---
+title: Bridge · Беклог и roadmap
+description: Приоритизация MoSCoW, критерии launch readiness, источники требований и квартальный roadmap до релиза.
+---
+
 # Беклог и roadmap Bridge
 
 ## Принципы приоритизации

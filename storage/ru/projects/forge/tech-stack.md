@@ -1,3 +1,8 @@
+---
+title: Forge · Используемые технологии
+description: Next.js SSR, React DnD для drag-and-drop, Zustand с Immer, JSON Schema для валидации и особенности сборки.
+---
+
 # Используемые технологии Forge
 
 ## Базовый стек

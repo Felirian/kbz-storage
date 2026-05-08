@@ -1,3 +1,8 @@
+---
+title: Pulse · Работа с репозиторием
+description: GitFlow, ветки и Conventional Commits, требования к PR, чек-лист ревью и шаги релизного цикла.
+---
+
 # Работа с репозиторием Pulse
 
 ## Branching-стратегия: GitFlow

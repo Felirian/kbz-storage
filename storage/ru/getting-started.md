@@ -1,5 +1,6 @@
 ---
-title: Wiki
+title: Wiki — база знаний NovaTech Solutions
+description: Стартовая страница базы знаний студии NovaTech Solutions. Навигация по проектам, команде и справочным материалам.
 ---
 
 # Wiki

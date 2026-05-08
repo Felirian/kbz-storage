@@ -1,3 +1,8 @@
+---
+title: Pulse · UI-библиотека
+description: Реестр всех компонентов проекта со статусами stable/beta/deprecated и ссылками на Storybook.
+---
+
 # UI-библиотека Pulse
 
 ## Назначение

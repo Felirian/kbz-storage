@@ -1,3 +1,8 @@
+---
+title: Bridge · Работа с репозиторием
+description: Feature-branch workflow, обязательный security-апрув для изменений в auth и keys, CI с SAST, процедура релиза.
+---
+
 # Работа с репозиторием Bridge
 
 ## Branching-стратегия: feature-branch

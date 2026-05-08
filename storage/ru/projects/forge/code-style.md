@@ -1,3 +1,8 @@
+---
+title: Forge · Код-стайл
+description: Нейминг, ESLint с правилами для JSON Schema, TypeScript-строгость, обязательное покрытие тестами.
+---
+
 # Код-стайл Forge
 
 ## Общие правила

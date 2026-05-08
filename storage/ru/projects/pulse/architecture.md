@@ -1,3 +1,8 @@
+---
+title: Pulse · Архитектура приложения
+description: Feature-Sliced Design, паттерн Container/Presenter, управление состоянием, real-time синхронизация и RFC-процесс.
+---
+
 # Архитектура приложения Pulse
 
 ## Подход

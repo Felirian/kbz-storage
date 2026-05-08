@@ -1,3 +1,8 @@
+---
+title: Forge · Работа с репозиторием
+description: Trunk-based development, управление фича-флагами в LaunchDarkly, Conventional Commits и менторские PR-ревью.
+---
+
 # Работа с репозиторием Forge
 
 ## Branching-стратегия: trunk-based
