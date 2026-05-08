@@ -1,6 +1,6 @@
 ---
 title: Pulse · Используемые технологии
-description: Технологический стек проекта: React 18, TypeScript, Recharts, React Query, WebSocket, CI/CD и инструменты разработки.
+description: "Технологический стек проекта: React 18, TypeScript, Recharts, React Query, WebSocket, CI/CD и инструменты разработки."
 ---
 
 # Используемые технологии Pulse

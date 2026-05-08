@@ -1,6 +1,6 @@
 ---
 title: Проекты NovaTech Solutions
-description: Каталог всех продуктов студии: Pulse, Forge, Bridge. Краткие описания, статусы и ссылки на документацию.
+description: "Каталог всех продуктов студии: Pulse, Forge, Bridge. Краткие описания, статусы и ссылки на документацию."
 ---
 
 # Проекты NovaTech Solutions
