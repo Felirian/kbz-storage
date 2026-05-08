@@ -12,9 +12,11 @@ NovaTech Solutions — продуктовая студия, специализи
 
 | Продукт | Тип | Статус |
 |---|---|---|
-| [Pulse](/projects/pulse/passport) | SaaS-дашборд для HR-аналитики | production |
-| [Forge](/projects/forge/passport) | low-code конструктор форм и документооборота | beta |
-| [Bridge](/projects/bridge/passport) | портал для API-партнёров | pre-launch |
+| [Pulse](/projects/pulse/index) | SaaS-дашборд для HR-аналитики | production |
+| [Forge](/projects/forge/index) | low-code конструктор форм и документооборота | beta |
+| [Bridge](/projects/bridge/index) | портал для API-партнёров | pre-launch |
+
+Полный список проектов с кратким описанием — на странице [Проекты](/projects/index).
 
 Каждый продукт имеет выделенную кросс-функциональную команду. Часть специалистов участвует в нескольких проектах одновременно.
 
