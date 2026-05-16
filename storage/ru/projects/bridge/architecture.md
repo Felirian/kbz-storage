@@ -1,6 +1,6 @@
 ---
 title: Bridge · Архитектура приложения
-description: BFF-паттерн, MDX-конвейер документации, модули Sandbox и Playground, изоляция auth-слоя и RFC-процесс.
+description: "BFF-паттерн, MDX-конвейер документации, JsonEditor на Monaco, модули Sandbox и Playground, изоляция auth-слоя и RFC-процесс."
 ---
 
 # Архитектура приложения Bridge
@@ -52,6 +52,98 @@ public/
 ```
 /sandbox?m=POST&p=/v1/keys&b=eyJ...
 ```
+
+### JsonEditor — компонент редактирования JSON
+
+Ключевой интерактивный элемент sandbox-домена. Реализован как тонкая обёртка над **Monaco Editor** (`@monaco-editor/react`) с набором настроек, специфичных для Bridge.
+
+#### Расположение
+
+```
+src/domains/sandbox/components/JsonEditor/
+  JsonEditor.tsx          # корневой компонент
+  JsonEditor.module.scss
+  useJsonEditor.ts        # хук: валидация, схема, тема
+  json-editor.types.ts
+  index.ts
+```
+
+#### Конфигурация Monaco
+
+```ts
+const EDITOR_OPTIONS: editor.IStandaloneEditorConstructionOptions = {
+  language: 'json',
+  theme: colorScheme === 'dark' ? 'bridge-dark' : 'bridge-light',
+  fontSize: 13,
+  lineNumbers: 'on',
+  minimap: { enabled: false },
+  scrollBeyondLastLine: false,
+  wordWrap: 'on',
+  formatOnPaste: true,
+  tabSize: 2,
+};
+```
+
+Темы `bridge-dark` и `bridge-light` зарегистрированы один раз при инициализации Monaco (`monaco.editor.defineTheme`) и совпадают с палитрой из [Стайлгайда](/projects/bridge/styleguide).
+
+#### JSON Schema валидация
+
+Для каждого выбранного эндпоинта из OpenAPI-спецификации извлекается JSON Schema тела запроса и передаётся в Monaco через `monaco.languages.json.jsonDefaults.setDiagnosticsOptions`:
+
+```ts
+monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+  validate: true,
+  schemas: [{
+    uri: `bridge://schema/${operationId}`,
+    fileMatch: ['*'],
+    schema: requestBodySchema,   // JSON Schema из openapi.yaml
+  }],
+  enableSchemaRequest: false,
+});
+```
+
+Это даёт inline-подсветку ошибок, автодополнение и hover-документацию прямо в редакторе — без отдельного валидатора.
+
+#### Состояние и интеграция с sandbox
+
+Значение редактора не хранится в React state — это источник задержек при большом JSON. Вместо этого:
+
+- Monaco держит значение во внутреннем буфере;
+- при отправке запроса хук `useJsonEditor` вызывает `editor.getValue()` и валидирует синхронно;
+- результат пишется в Zustand-стор sandbox'а только при изменении (debounce 400 мс).
+
+```ts
+// useJsonEditor.ts (упрощённо)
+const handleChange = useDebouncedCallback((value: string) => {
+  sandboxStore.setRequestBody(value);
+}, 400);
+```
+
+#### Форматирование и горячие клавиши
+
+| Действие | Сочетание |
+|---|---|
+| Форматировать JSON | `Shift+Alt+F` |
+| Свернуть все блоки | `Ctrl+K Ctrl+0` |
+| Развернуть все блоки | `Ctrl+K Ctrl+J` |
+| Перейти к ошибке | `F8` |
+
+Форматирование также доступно кнопкой «Format» над редактором — вызывает `editor.getAction('editor.action.formatDocument').run()`.
+
+#### Lazy-загрузка
+
+Monaco весит ~2 МБ (gzipped ~500 КБ), поэтому компонент подгружается только при открытии sandbox:
+
+```ts
+// domains/sandbox/pages/Sandbox.tsx
+const JsonEditor = lazy(() => import('../components/JsonEditor'));
+```
+
+До загрузки показывается `<Skeleton height={280} />`. Это ограничение зафиксировано в метриках производительности — Monaco не должен попадать в основной бандл (см. раздел «Производительность» выше).
+
+#### Ограничения
+
+> ⚠️ Внимание: Monaco не поддерживает SSR. Компонент обёрнут в `dynamic(() => import(...), { ssr: false })` (Next.js). Любая попытка рендерить его на сервере вызовет ошибку `ReferenceError: document is not defined`.
 
 ### keys, quotas, organization
 
